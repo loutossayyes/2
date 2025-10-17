@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loutus Proposal Analysis</title>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+      /* إضافات بسيطة لتوضيح رابط التنقّل النشط */
+      .nav a.active {
+        color: var(--accent);
+        background: var(--muted);
+      }
+      /* بعض تعديلات نصية لخدمة النصوص الكبيرة */
+      .hero .lead { font-size:1.15rem; color:#444; margin-bottom:14px; }
+      .big-cta { display:inline-flex; align-items:center; gap:10px; padding:12px 20px; border-radius:999px; font-weight:700; background:linear-gradient(90deg,#ff7aa0,#ff5f8d); color:#fff; text-decoration:none; box-shadow:0 8px 30px rgba(255,111,145,0.18); }
+      .stat-card .icon { width:48px;height:48px;margin:0 auto 12px; display:block; }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="flex-brand" style="display:flex;align-items:center;gap:8px">
+          <!-- small illustrative icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12a9 9 0 1118 0 9 9 0 01-18 0z" fill="#FFDDE6"/></svg>
+          <a class="logo" href="#">لوتس</a>
+        </div>
+        <nav class="nav" id="nav">
+          <a href="#home">الرئيسية</a>
+          <a href="#message">رسالتي</a>
+          <a href="#poems">بين السطور</a>
+          <a href="#vision">الرؤية</a>
+          <a href="#contact">التواصل</a>
+        </nav>
+        <button id="menuToggle" class="menu-toggle" aria-label="قائمة">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero container animate-fadeIn" style="padding-top:84px;padding-bottom:40px">
+        <div class="hero-text" style="text-align:center;max-width:900px;margin:0 auto">
+          <div style="display:inline-flex;align-items:center;gap:10px;background:#fff;padding:10px 16px;border-radius:999px;margin-bottom:18px;box-shadow:0 8px 24px rgba(0,0,0,0.06)">
+            <!-- icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 8h12" stroke="#FF6F91" stroke-width="2" stroke-linecap="round"/></svg>
+            <span class="lead">مختبر النوايا المعتمد</span>
+          </div>
+
+          <h1 style="font-size:2.6rem;margin:0 0 16px;line-height:1.05">
+            🌷 لوتس – نية صافية<br/>مع نتائج واضحة 😄
+          </h1>
+
+          <div style="background:#fff;border-radius:20px;padding:20px;margin:18px auto;max-width:860px;box-shadow:0 20px 40px rgba(0,0,0,0.06);border:2px solid rgba(255,111,145,0.08)">
+            <p class="lead">هذا الموقع مش بحث علمي ولا تقرير رسمي، هو <strong style="color:var(--accent)">فحص نية</strong> معمول بعناية تامة.</p>
+            <p class="lead">كل صفحة فيه مثل <strong>عيّنة صغيرة من القلب</strong>، توضّح نتيجة واحدة: <span style="background:#ffebf1;padding:6px 10px;border-radius:10px;font-weight:700;color:var(--accent)">"نية صافية 100%"</span></p>
+            <p class="lead"><strong>الهدف؟</strong> بسيط وواضح: نية محترمة للخطبة، على أمل الزواج بإذن الله.</p>
+          </div>
+
+          <a href="#message" class="big-cta" onclick="document.getElementById('message')?.scrollIntoView({behavior:'smooth'})">
+            🔍 ابدئي التحليل وشوفي النتائج بنفسك!
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5v14" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M5 12h14" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+
+          <div class="mt-16" style="margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
+            <div class="card stat-card" style="background:#fff;padding:18px;border-radius:14px;text-align:center;box-shadow:0 12px 30px rgba(0,0,0,0.06)">
+              <svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3" fill="#FFB3C6"/><path d="M5 20c2-4 6-6 7-6s5 2 7 6" stroke="#FF6F91" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <p style="font-weight:700;color:#444">نية خالصة 100%</p>
+            </div>
+            <div class="card stat-card" style="background:#fff;padding:18px;border-radius:14px;text-align:center;box-shadow:0 12px 30px rgba(0,0,0,0.06)">
+              <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 3v18" stroke="#60A5FA" stroke-width="1.6" stroke-linecap="round"/><path d="M5 12h14" stroke="#60A5FA" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <p style="font-weight:700;color:#444">احترام مضمون</p>
+            </div>
+            <div class="card stat-card" style="background:#fff;padding:18px;border-radius:14px;text-align:center;box-shadow:0 12px 30px rgba(0,0,0,0.06)">
+              <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 21s6-4 6-9a6 6 0 10-12 0c0 5 6 9 6 9z" fill="#FF8FAF"/></svg>
+              <p style="font-weight:700;color:#444">صدق معتمد</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MESSAGE -->
+      <section id="message" class="py-20 px-6 bg-white">
+        <div class="container" style="max-width:900px;margin:0 auto">
+          <div style="text-align:center;margin-bottom:28px">
+            <div style="font-size:40px;color:var(--accent)">✉️</div>
+            <h2 style="font-size:2rem;margin-top:8px">تقرير شخصي من القلب</h2>
+          </div>
+
+          <div style="background:linear-gradient(180deg,#fff0f6,#fff);padding:30px;border-radius:18px;border:2px solid rgba(255,111,145,0.08);box-shadow:0 20px 40px rgba(0,0,0,0.05)">
+            <p class="lead"><strong style="color:var(--accent);font-size:1.1rem">لوتس،</strong> لأنك من أهل التحليل والدقة، قررت أقدّم النية بطريقتك الخاصة – <strong>علمية بس من القلب</strong>.</p>
+            <p class="lead">بدون عطور كلام أو صور درامية، بس في نية واضحة مثل <span style="background:#e6ffef;padding:6px 10px;border-radius:10px;font-weight:700;color:#059669">"نتيجة سلبية للتلاعب"</span>.</p>
+            <p class="lead"><strong>النية:</strong> خطبة محترمة، ثم زواج على الصدق والاحترام.</p>
+            <p class="lead">لو فحصتِ العيّنة كويس، بتطلعي بنتيجة وحدة:<br/><strong style="color:var(--accent);font-size:1.15rem;background:#fff0f6;padding:8px 12px;border-radius:12px;display:inline-block;margin-top:8px">Authentic 100% – من قلب نضيف ومضمون. ❤️</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- POEMS -->
+      <section id="poems" class="py-20 px-6 bg-gradient-to-br from-pink-50 to-white">
+        <div class="container" style="max-width:900px;margin:0 auto">
+          <div style="text-align:center;margin-bottom:28px">
+            <div style="font-size:40px;color:var(--accent)">✨</div>
+            <h2 style="font-size:2rem;margin-top:8px">أبيات من قلب المختبر</h2>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div style="background:#fff;padding:20px;border-radius:14px;box-shadow:0 16px 30px rgba(0,0,0,0.06)">
+              <p>يا لوتس، يا عيّنة نقية،</p>
+              <p>نتائجك دايمًا "مثالية – خالية من السلبية".</p>
+            </div>
+            <div style="background:#fff;padding:20px;border-radius:14px;box-shadow:0 16px 30px rgba(0,0,0,0.06)">
+              <p>فحصت النية بالعين المجردة،</p>
+              <p>طلعت "نية طيبة" بدون شوائب محددة.</p>
+            </div>
+            <div style="background:#fff;padding:20px;border-radius:14px;box-shadow:0 16px 30px rgba(0,0,0,0.06)">
+              <p>لو كانت القلوب تُقاس بالمجهر،</p>
+              <p>كنتِ شفتِ في قلبي نية خير، واضحة ومعتبرة.</p>
+            </div>
+            <div style="background:#fff;padding:20px;border-radius:14px;box-shadow:0 16px 30px rgba(0,0,0,0.06)">
+              <p>فاسمحيلي أقولها بدون تقرير رسمي:</p>
+              <p>النية إيجابية... والنية مطابقة للمعايير العلمية. 🔬</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISION -->
+      <section id="vision" class="py-20 px-6 bg-white">
+        <div class="container" style="max-width:900px;margin:0 auto">
+          <div style="text-align:center;margin-bottom:28px">
+            <div style="font-size:40px;color:var(--accent)">🧪</div>
+            <h2 style="font-size:2rem;margin-top:8px">النتائج المتوقعة بعد الاتصال</h2>
+          </div>
+
+          <div style="background:linear-gradient(180deg,#eff8ff,#fff);padding:26px;border-radius:16px;border:2px solid rgba(59,130,246,0.08);box-shadow:0 20px 40px rgba(2,6,23,0.04)">
+            <p class="lead">بعد التحليل والمتابعة، تبيّن إن الزواج القائم على <strong style="color:#2563eb">الصدق والاحترام</strong> يعطي نتائج ممتازة في الراحة النفسية والاستقرار.</p>
+
+            <p style="font-size:1.15rem;font-weight:700;margin:12px 0">الرؤية المستقبلية بسيطة:</p>
+
+            <div style="display:grid;gap:10px">
+              <div style="background:#fff;padding:12px;border-radius:10px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 20px rgba(0,0,0,0.04)">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#ff7aa0" stroke-width="1.5"/></svg>
+                <p>بيت مليان دفء وطمأنينة.</p>
+              </div>
+              <div style="background:#fff;padding:12px;border-radius:10px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 20px rgba(0,0,0,0.04)">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3v18" stroke="#ff7aa0" stroke-width="1.5"/></svg>
+                <p>ضحك يومي بدون حساسات.</p>
+              </div>
+              <div style="background:#fff;padding:12px;border-radius:10px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 20px rgba(0,0,0,0.04)">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 21s6-4 6-9a6 6 0 10-12 0c0 5 6 9 6 9z" fill="#ff8faf"/></svg>
+                <p>تفاهم نقي، ما يحتاج أشعة X 😄</p>
+              </div>
+            </div>
+
+            <p class="lead" style="margin-top:12px"><strong>النتيجة النهائية:</strong> <span style="background:#ecfdf5;padding:8px 12px;border-radius:10px;color:#065f46;font-weight:700">علاقة طبيعية... مستقرة تمامًا. ❤️</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="py-20 px-6 bg-gradient-to-br from-pink-50 via-white to-pink-50 relative overflow-hidden">
+        <!-- decorative lotus elements -->
+        <div style="position:absolute;top:40px;left:40px;opacity:0.08;pointer-events:none">
+          <svg width="120" height="120" viewBox="0 0 100 100" class="text-pink-300"><path fill="currentColor" d="M50,20 Q40,30 40,45 Q40,55 50,60 Q60,55 60,45 Q60,30 50,20z"/></svg>
+        </div>
+        <div style="position:absolute;bottom:40px;right:40px;opacity:0.08;pointer-events:none">
+          <svg width="100" height="100" viewBox="0 0 100 100" class="text-pink-300"><path fill="currentColor" d="M50,20 Q40,30 40,45 Q40,55 50,60 Q60,55 60,45 Q60,30 50,20z"/></svg>
+        </div>
+
+        <div class="container" style="max-width:780px;margin:0 auto;position:relative;z-index:10">
+          <div style="text-align:center;margin-bottom:22px">
+            <div style="font-size:40px;color:var(--accent)">💬</div>
+            <h2 style="font-size:2rem;margin-top:8px">التواصل – اعرفي وين أنا 😄</h2>
+          </div>
+
+          <div style="background:#fff;padding:26px;border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,0.06);border:2px solid rgba(255,111,145,0.06);position:relative">
+            <div style="position:absolute;top:12px;left:12px;opacity:0.12">
+              <svg width="40" height="40" viewBox="0 0 100 100"><path fill="currentColor" d="M50,20 Q40,30 40,45 Q40,55 50,60 Q60,55 60,45 Q60,30 50,20z"/></svg>
+            </div>
+
+            <div style="text-align:center;margin-bottom:18px">
+              <div style="display:flex;justify-content:center;gap:18px;margin-bottom:12px">
+                <div style="font-size:28px;color:#10B981">✔️</div>
+                <div style="font-size:28px;color:var(--accent)">✉️</div>
+              </div>
+
+              <p class="lead">ببساطة، <strong style="color:var(--accent)">تعرفي وين أنا بالصراحة</strong>، وإذا حبيتي تحكيني، <strong style="color:#059669">ضروري تعطيني ضوء أخضر أولاً</strong>.</p>
+            </div>
+
+            <div style="background:linear-gradient(90deg,#fff0f6,#f0fff4);padding:14px;border-radius:12px;border:2px dashed rgba(255,111,145,0.12);display:flex;align-items:center;justify-content:center">
+              <div style="display:flex;align-items:center;gap:10px;color:#4b5563;font-weight:700">
+                <span style="color:#10B981">✔</span>
+                <span>في انتظار الضوء الأخضر 🌷</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container" style="text-align:center;padding:28px 0">
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#FFDDE6"/></svg>
+          <span style="font-weight:700">لوتس</span>
+        </div>
+        <p style="color:#666">© 2025 – نِتاج القلب | تمت مراجعة النية تحت إشراف القلب مباشرة 😄</p>
+      </div>
+    </footer>
+
+    <script src="./script.js" defer></script>
+
+    <script>
+      // تحديث رابط التنقّل النشط أثناء التمرير
+      document.addEventListener('DOMContentLoaded', function () {
+        const navLinks = Array.from(document.querySelectorAll('.nav a'));
+        function updateActive() {
+          const fromTop = window.scrollY + 200;
+          navLinks.forEach(link => {
+            const href = link.getAttribute('href') || '';
+            if (!href.startsWith('#')) return;
+            const id = href.slice(1);
+            const section = document.getElementById(id);
+            if (!section) return;
+            if (section.offsetTop <= fromTop && (section.offsetTop + section.offsetHeight) > fromTop) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+        updateActive();
+        window.addEventListener('scroll', updateActive);
+
+        // ensure smooth scroll for nav clicks (works also with script.js fallback)
+        navLinks.forEach(link => {
+          link.addEventListener('click', function(e){
+            const href = this.getAttribute('href') || '';
+            if (href.startsWith('#')) {
+              e.preventDefault();
+              const el = document.querySelector(href);
+              if (el) el.scrollIntoView({behavior:'smooth',block:'start'});
+              // close mobile nav if open (script.js toggles display)
+              const nav = document.getElementById('nav');
+              if (window.innerWidth <= 640 && nav) nav.style.display = '';
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
