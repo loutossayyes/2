@@ -30,6 +30,7 @@
           <a href="#home">الرئيسية</a>
           <a href="#message">رسالتي</a>
           <a href="#poems">بين السطور</a>
+          <a href="#game">اللعبة</a>
           <a href="#vision">الرؤية</a>
           <a href="#contact">التواصل</a>
         </nav>
@@ -121,6 +122,31 @@
               <p>فاسمحيلي أقولها بدون تقرير رسمي:</p>
               <p>النية إيجابية... والنية مطابقة للمعايير العلمية. 🔬</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GAME -->
+      <section id="game" class="py-20 px-6 bg-white">
+        <div class="container" style="max-width:900px;margin:0 auto">
+          <div style="text-align:center;margin-bottom:18px">
+            <div style="font-size:40px;color:var(--accent)">💗</div>
+            <h2 style="font-size:2rem;margin-top:8px">لعبة القلب — اضغطي على القلوب!</h2>
+          </div>
+
+          <div class="game-card" style="background:#fff;padding:22px;border-radius:16px;border:2px solid rgba(255,111,145,0.06);box-shadow:0 20px 40px rgba(0,0,0,0.06)">
+            <div class="game-info" style="display:flex;gap:12px;justify-content:center;margin-bottom:12px">
+              <div>الوقت: <span id="gameTime">15</span>s</div>
+              <div>النتيجة: <span id="gameScore">0</span></div>
+            </div>
+
+            <div style="text-align:center;margin-bottom:12px">
+              <button id="startGame" class="btn">ابدئي اللعبة</button>
+            </div>
+
+            <div id="playArea" class="play-area" style="position:relative;height:260px;border-radius:12px;overflow:hidden;background:linear-gradient(90deg,#fff0f6,#fff);border:1px dashed rgba(255,111,145,0.08)"></div>
+
+            <p id="gameMsg" style="text-align:center;margin-top:12px;color:#444"></p>
           </div>
         </div>
       </section>
