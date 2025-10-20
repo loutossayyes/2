@@ -65,8 +65,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const gameMsg = document.getElementById('gameMsg');
 
   if (startBtn && playArea && timeEl && scoreEl) {
-    let time = 15;
+    const maxHearts = 15;
+    let time = 10; // reduced duration
     let score = 0;
+    let heartsSpawned = 0; // عدّاد القلوب المولّدة
     let countdown = null;
     let spawnTimer = null;
 
@@ -119,6 +121,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function spawnHeart() {
+      // if reached max hearts, don't spawn more
+      if (heartsSpawned >= maxHearts) return;
+
       // create heart element
       const heart = document.createElement('div');
       heart.className = 'heart';
@@ -147,9 +152,11 @@ document.addEventListener('DOMContentLoaded', function () {
       heart.style.cursor = 'pointer';
       heart.style.transition = 'transform 0.12s ease';
 
+      // increase spawned count
+      heartsSpawned += 1;
+
       // click / touch handler
       const onHit = (e) => {
-        // عند اللمس نمنع تمرير الصفحة الافتراضي
         if (e && typeof e.preventDefault === 'function') e.preventDefault();
         score += 1;
         updateDisplays();
@@ -169,16 +176,17 @@ document.addEventListener('DOMContentLoaded', function () {
         clearTimeout(rm);
       }, removeDelay);
 
-      // schedule next spawn only if game still running
-      if (time > 0) {
+      // schedule next spawn only if game still running and under max hearts
+      if (time > 0 && heartsSpawned < maxHearts) {
         spawnTimer = setTimeout(spawnHeart, 300 + Math.floor(Math.random() * 700));
       }
     }
 
     function startGame() {
       // reset
-      time = 15;
+      time = 10; // ensure 10s on start
       score = 0;
+      heartsSpawned = 0;
       updateDisplays();
       gameMsg.textContent = '';
       startBtn.disabled = true;
