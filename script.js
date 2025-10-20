@@ -80,13 +80,42 @@ document.addEventListener('DOMContentLoaded', function () {
       hearts.forEach(h => h.remove());
     }
 
+    // new: return Arabic message for final score
+    function getEndMessage(s) {
+      switch (s) {
+        case 1: return 'شدي حيلك';
+        case 2: return 'ايه منيح';
+        case 3: return 'كل شي حلو لونه بني مثل حبات البن وعيونك اكيد';
+        case 4: return ' تاكلك الضبعة';
+        case 5: return 'حظ اوفر مافي لاين';
+        case 6: return ' حظ اوفر مافي عبارة';
+        case 7: return 'الناس تشوف القمر في السماء وانا اشوفه فيك';
+        case 8: return 'تسمعي على sey yas to heaven لانو وانا عبضيف اللعبة كانت مشغلة كتير حلوة';
+        case 10: return 'الجمال له تعريف — انتي اول السطور';
+        case 12: return 'حسني الاداء لل13';
+        case 13: return 'مرحبا انا 13 وبقلك لل14';
+        case 14: return ' بجوز ما توصالي لل15 لذالك احببتك، لا لشيء، إلا لأنك أنتِ أنتِ.';
+        case 15: return 'أحببتك، لا لشيء، إلا لأنك أنتِ أنتِ';
+        default: return 'انتهت اللعبة — نتيجتك تظهر هنا!';
+      }
+    }
+
     function endGame() {
       clearInterval(countdown);
       clearTimeout(spawnTimer);
       clearHearts();
       startBtn.disabled = false;
-      gameMsg.textContent = `انتهت اللعبة! نتيجتك: ${score} ❤️`;
       startBtn.textContent = 'جربي مرة أخرى';
+
+      // عرض الرسالة الخاصة بالنتيجة
+      const phrase = getEndMessage(score);
+      // نعرض النتيجة مع العبارة (يحافظ على السطر الجديد إذا وُجد)
+      gameMsg.textContent = `انتهت اللعبة! نتيجتك: ${score} ❤️\n${phrase}`;
+
+      // استعادة سلوك التمرير
+      document.body.style.overflow = '';
+      const mobileHint = document.getElementById('mobileHint');
+      if (mobileHint) mobileHint.style.display = 'none';
     }
 
     function spawnHeart() {
@@ -94,13 +123,21 @@ document.addEventListener('DOMContentLoaded', function () {
       const heart = document.createElement('div');
       heart.className = 'heart';
       heart.textContent = '❤️';
-      const areaRect = playArea.getBoundingClientRect();
-      const size = 30 + Math.floor(Math.random() * 40); // 30-70px
+
+      // use client sizes (أكثر ثباتًا على الموبايل)
+      const areaW = playArea.clientWidth;
+      const areaH = playArea.clientHeight;
+
+      // size: أكبر قليلًا على الجوال لمسه أسهل
+      const base = (window.innerWidth <= 640) ? 40 : 30;
+      const size = base + Math.floor(Math.random() * 50); // تتراوح حسب الجهاز
       heart.style.fontSize = size + 'px';
+      heart.style.padding = '6px'; // يزيد منطقة اللمس
+      heart.style.borderRadius = '50%';
 
       // random position inside playArea
-      const maxX = Math.max(0, areaRect.width - size);
-      const maxY = Math.max(0, areaRect.height - size);
+      const maxX = Math.max(0, areaW - size);
+      const maxY = Math.max(0, areaH - size);
       const x = Math.floor(Math.random() * (maxX + 1));
       const y = Math.floor(Math.random() * (maxY + 1));
       heart.style.position = 'absolute';
@@ -110,14 +147,18 @@ document.addEventListener('DOMContentLoaded', function () {
       heart.style.cursor = 'pointer';
       heart.style.transition = 'transform 0.12s ease';
 
-      // click handler
-      const onClick = (e) => {
+      // click / touch handler
+      const onHit = (e) => {
+        // عند اللمس نمنع تمرير الصفحة الافتراضي
+        if (e && typeof e.preventDefault === 'function') e.preventDefault();
         score += 1;
         updateDisplays();
-        heart.removeEventListener('click', onClick);
+        heart.removeEventListener('click', onHit);
+        heart.removeEventListener('touchstart', onHit);
         heart.remove();
       };
-      heart.addEventListener('click', onClick);
+      heart.addEventListener('click', onHit);
+      heart.addEventListener('touchstart', onHit, {passive: false});
 
       playArea.appendChild(heart);
 
@@ -142,6 +183,11 @@ document.addEventListener('DOMContentLoaded', function () {
       gameMsg.textContent = '';
       startBtn.disabled = true;
       startBtn.textContent = 'اللعبة جارية...';
+
+      // منع التمرير أثناء اللعب (مهم للجوال)
+      document.body.style.overflow = 'hidden';
+      const mobileHint = document.getElementById('mobileHint');
+      if (mobileHint && window.innerWidth <= 640) mobileHint.style.display = 'block';
 
       // start spawning and countdown
       spawnHeart();
