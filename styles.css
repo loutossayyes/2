@@ -83,7 +83,7 @@ body{
 
 /* Game styles */
 .game-card { /* محليًا يتم تعيين بعض الخصائص في HTML inline؛ هذه قواعد إضافية */ }
-.play-area { display:block; position:relative; }
+.play-area { display:block; position:relative; min-height:220px; touch-action: none; }
 
 .heart {
   display:flex;
@@ -92,11 +92,24 @@ body{
   pointer-events:auto;
   transform-origin:center;
   user-select:none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  padding:6px;
 }
 .heart:active { transform: scale(0.85); }
 
-/* تحسين مظهر زر عند اللعبة */
-#startGame { min-width:160px }
+/* تلميح للموبايل (يظهر فقط على شاشات صغيرة) */
+.mobile-hint { color:#666; font-size:0.95rem; }
+@media (min-width:641px){
+  .mobile-hint { display:none !important; }
+}
+
+/* تحسين المساحة عند الموبايل */
+@media (max-width:640px){
+  .play-area { min-height:300px; }
+  #startGame { min-width:180px; font-size:1.05rem; }
+  .heart { padding:8px; }
+}
 
 /* responsive */
 @media (max-width:900px){
