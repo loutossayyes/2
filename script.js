@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (startBtn && playArea && timeEl && scoreEl) {
     const maxHearts = 15;
-    let time = 10; // reduced duration
+    let time = 10; // set default duration to 10s
     let score = 0;
     let heartsSpawned = 0; // عدّاد القلوب المولّدة
     let countdown = null;
@@ -158,11 +158,24 @@ document.addEventListener('DOMContentLoaded', function () {
       // click / touch handler
       const onHit = (e) => {
         if (e && typeof e.preventDefault === 'function') e.preventDefault();
+
+        // prevent increasing beyond maxHearts
+        if (score >= maxHearts) return;
+
         score += 1;
         updateDisplays();
+
         heart.removeEventListener('click', onHit);
         heart.removeEventListener('touchstart', onHit);
         heart.remove();
+
+        // if reached max, end game immediately
+        if (score >= maxHearts) {
+          // ensure score does not exceed max
+          score = maxHearts;
+          updateDisplays();
+          endGame();
+        }
       };
       heart.addEventListener('click', onHit);
       heart.addEventListener('touchstart', onHit, {passive: false});
